@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [gopi parametarization]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="xml testing(failed)">
+    <parameter name="password" value="10ucs033"/>
+    <parameter name="emailadd" value="gopigopi033@gmail.com"/>
+    <classes>
+      <class name="TestNG.project1">
+        <methods>
+          <include name="afterSuite"/>
+          <include name="LoginandDDandEnquiry"/>
+          <include name="newxmltesting"/>
+          <include name="beforeSuite"/>
+          <include name="crmlogin"/>
+        </methods>
+      </class> <!-- TestNG.project1 -->
+    </classes>
+  </test> <!-- xml testing(failed) -->
+</suite> <!-- Failed suite [gopi parametarization] -->

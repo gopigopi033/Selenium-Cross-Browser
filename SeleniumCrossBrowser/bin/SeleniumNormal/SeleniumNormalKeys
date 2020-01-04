@@ -1,0 +1,95 @@
+
+// 1. Open Browser
+      System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Selenium\\chromedriver.exe");
+      WebDriver driver=new ChromeDriver();
+      driver.get("https://gmail.com");
+
+// 2. Window "Maximize and Close"
+      driver.manage().window().maximize();
+      driver.close(); // Close current window.
+      driver.quit(); // Close full browser.
+
+// 3. Wait Time (Syncchronization -- is also mention by implicit and explicit wait time)
+     (i) Dynamic wait time - (That mean you put 20 seconds but application will open 5 seconds balance 15 seconds cannot wait)    
+         -- driver.manage().timeouts().pageLoadTimeout(20,TimeUnit.SECONDS); //Explicitly -- you can use large applications. 
+         -- driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS); //Mostly use small apllications.
+            //implicitly wait -- is always applied globally -- is available for all the ""webelements"".
+     (ii) Static wait time
+         -- Thread.sleep(2000); // you put 20 seconds but application will open 5 second balance 15 seconds it will be wait)
+             
+// 4. TextBox or searchBox
+     (i) driver.findElement(By.id("identifierId")).sendKeys("gopigopi033@gmail.com");
+         driver.findElement(By.xpath("//*[@id=\"passwordNext\"]/span/span")).click();
+     (ii) driver.findElement(By.id("identifierId")).sendKeys("IND",Keys.ENTER);
+
+// 5. DoubleClick and RightClick
+     (i) Actions action=new Actions(driver); //Actions - keyword//action - new object//driver - parent object.
+         WebElement link=driver.findElement(By.xpath("//*[@id=\"form1\"]/div[4]/table/tbody/tr[4]/td[3]")); //Link - also new object.
+         action.doubleClick(link).perform(); //double click
+     (ii) Actions action1=new Actions(driver);
+          WebElement link1=a.findElement(By.xpath("//*[@id=\"form1\"]/div[4]/table/tbody/tr[4]/td[3]"));
+          action1.contextClick(link1).perform(); //right click
+     
+// 6. Mousehover or Mouseover
+      Actions a=new Actions(driver); //Actions - Keyword//a - new object//driver - parent object.
+      WebElement move=driver.findElement(By.xpath("//*[@id=\"primary-menu\"]/li[2]/a/span/span")); //move - also new object.
+      a.moveToElement(move).build().perform();
+      WebElement ele1=driver.findElement(By.xpath("//*[@id=\"primary-menu\"]/li[2]/ul/li[5]/a/span/span"));
+      a.moveToElement(ele1).build().perform();
+      WebElement ele2=driver.findElement(By.xpath("//*[@id=\"primary-menu\"]/li[2]/ul/li[5]/ul/li[2]/a/span/span"));
+      a.moveToElement(ele2).click().build().perform();
+     
+// 7. Scroll Option up/down
+      JavascriptExecutor jse=(JavascriptExecutor)driver;
+      jse.executeScript("window.scrollBy(0,1000)", ""); //Up to Down
+      jse.executeScript("window.scrollBy(0,-250)", ""); //Down to Up
+     
+// 8. ScreenShot 
+      File src=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE); //src - new object//driver - parent object.
+      FileUtils.copyFile(src, new File("C:\\Screenshot\\fgrg12.png")); //Must download and upload "fileutils jar".
+     
+// 9. navigate forward/backward
+      driver.navigate().back();
+      driver.navigate().forward();
+     
+// 10. NewTab or NewWindow
+      ((JavascriptExecutor)driver).executeScript("window.open()"); //driver - parent object.
+      ArrayList<String> tabs=new ArrayList<String>(driver.getWindowHandles()); //tabs - new object.
+      driver.switchTo().window(tabs.get(1));
+      driver.get("https://www.google.com");
+     
+// 11. Alertbox or pop-up window
+      (i) driver.switchTo().alert().accept(); // it is used for some applications to display alert message you click "ok or yes" that purpose.
+          driver.switchTo().alert().dismiss(); // it is used for some applications to display alert message you click "delete or cancel" that purpose.
+      (ii) Alert alert=driver.switchTo().alert(); //alert - new object//This is used for to get and display in console window.
+           System.out.println("Alert Text\n" +alert.getText());
+           alert.accept();    
+    
+// 12. Handling Frames
+       driver.switchTo().frame("framename"); // it is used for inside a website many frames are there that time choose particular frame use this.
+      
+// 13. DropDown Handling (Select DropDown Text box option)
+      (i) Select product=new Select(driver.findElement(By.name("ctl001$dd_productcode"))); //product - new object//driver - parent object.
+	      product.selectByVisibleText("PC00133"); //This is enter correct option "PC00133"//This is for Text. 
+	  (ii) Select product1=new Select(driver.findElement(By.id("yearbox")));
+		   product1.selectByValue("1917"); //This is enter correct option "1917"//This is for numbers.
+	  (iii) Select product2=new Select(driver.findElement(By.id("daybox")));
+	        product2.selectByIndex(10); ////This is enter correct option "8"//This is for index.	 
+		 
+// 14. Upload File
+      (i) driver.findElement(By.name("ctl00$ContentPlaceHolder1$")).sendKeys("gopiphoto"); // use normal option you can upload.
+      (ii) File will upload successfully or not chect concept
+           -- String expectedfile=driver.findElement(By.name("ctl00$ContentPlaceHolder1$")).getAttribute("value");
+              if(expectedfile.equalsIgnoreCase("gopiphoto"))
+              {
+              System.out.println("FILE UPLODED SUCCESSFULLY");
+              }		 
+              
+// 15. Drag and Drop
+      -- driver.switchTo().frame("framename"); // if many frame is there you can use particular frame name otherwise use "0"
+      -- Actions action=new Actions(driver);
+      -- action.clickAndHold(driver.findElement(By.xpath("draggablename"))).moveToElement(driver.findElement(By.xpath("droppablename")))
+         .release().build().perform();
+      
+      
+      

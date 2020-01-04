@@ -1,0 +1,16 @@
+
+// 1. How to fitch Data's from Excel
+     (i) FileInputStream m=new FileInputStream("C:\\SeleniumTraining\\ERPTesting.xls");
+	     Workbook h=Workbook.getWorkbook(m); //Download and upload "jxl file".
+	     Sheet j=h.getSheet(0);
+	     int rowcount=j.getRows();
+	     for(int i=1;i<rowcount;i++)
+	     {
+	     String cusid=j.getCell(1,i).getContents(); //Normal for loop take first "row-column" but data driven concept "column-row".
+	     c.findElement(By.name("ctl00$ContentPlaceHolder1$txt_customerid")).sendKeys(cusid); //parent object name.
+	     }
+	     
+// 2. clear()
+     c.findElement(By.name("ctl00$ContentPlaceHolder1$txt_registeredby")).clear(); //re-enter same text box you first clear and type.
+     c.findElement(By.name("ctl00$ContentPlaceHolder1$txt_registeredby")).sendKeys(regby);	     
+	     

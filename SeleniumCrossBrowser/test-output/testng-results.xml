@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2019-11-11T13:56:40 IST" name="Suite" finished-at="2019-11-11T13:56:40 IST" duration-ms="322">
+    <groups>
+    </groups>
+    <test started-at="2019-11-11T13:56:40 IST" name="Test" finished-at="2019-11-11T13:56:40 IST" duration-ms="322">
+      <class name="TestNG.ParallelExecutionDemo">
+        <test-method signature="highschool()[pri:0, instance:TestNG.ParallelExecutionDemo@13acb0d1]" started-at="2019-11-11T13:56:40 IST" name="highschool" finished-at="2019-11-11T13:56:40 IST" duration-ms="96" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- highschool -->
+        <test-method signature="pgengineering()[pri:0, instance:TestNG.ParallelExecutionDemo@13acb0d1]" started-at="2019-11-11T13:56:40 IST" name="pgengineering" finished-at="2019-11-11T13:56:40 IST" duration-ms="102" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- pgengineering -->
+        <test-method signature="ugengineering()[pri:0, instance:TestNG.ParallelExecutionDemo@13acb0d1]" started-at="2019-11-11T13:56:40 IST" name="ugengineering" finished-at="2019-11-11T13:56:40 IST" duration-ms="118" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ugengineering -->
+        <test-method signature="middleschool()[pri:0, instance:TestNG.ParallelExecutionDemo@13acb0d1]" started-at="2019-11-11T13:56:40 IST" name="middleschool" finished-at="2019-11-11T13:56:40 IST" duration-ms="114" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- middleschool -->
+      </class> <!-- TestNG.ParallelExecutionDemo -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

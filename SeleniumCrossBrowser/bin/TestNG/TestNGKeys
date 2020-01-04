@@ -1,0 +1,31 @@
+
+// 1. Priority
+     ex: @Test(priority=1) //It is used for which test case will be run first.
+    
+// 2. Groups TestCase
+      ex: (i) @Test(priority=1,groups="Login") //groups is some test cases are same concept that time you can use.     
+          (ii) @Test(priority=2,groups="Login")
+          
+// 3. Test true/false
+     boolean b=driver.findElement(By.xpath("//dvghfhvhkjh")).isDisplayed(); //b - new object//driver - parent object.
+     
+// 4. InvocationCount
+     ex: @Test(InvocationCount=10) // It is used for check particular test case again and again.     
+     
+// 5. dependsOnMethods
+     ex: (i) @Test(priority=1,dependsOnMethods="LoginTest") //dependsOnMethods is used for first login then enter the homepage that time     
+         (ii) @Test(priority=2,dependsOnMethods="LoginTest")    login page is failure homepage cannot run.
+         
+// 6. infintLoopTest
+     ex: int i=1; //Mostly it cannot be used because this condition cannot stop.
+         while(i==1){
+         System.out.println(i)
+         }
+         
+// 7. Hard Assertion and Soft Assertion (Assert/Verify)	
+     syntax: Assert.assertEquals(expected, actual);
+             Assert.assertEquals(true, true); //This is no problem.
+         ex: Assert.assertEquals(true, false); // This condition value is failure stop the next process.//Hard Assert
+         
+         ex: SoftAssert softAssert=new Softassert(); //must you can create object for softassert.
+             softAssert.assertEquals(true, false); // This condition value is failure no issue continue next process.//Soft Assert    
