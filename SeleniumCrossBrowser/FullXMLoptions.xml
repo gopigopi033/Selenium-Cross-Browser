@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<!-- ***** This XML Suite Cannot Use Just for Reference Only ***** -->
+
+<!-- 1. Parallel Execution -->
+<suite name="Suite" parallel="methods" thread-count="4" verbose="2">
+
+<!-- 2. Grouping Functions (ex: @Test(groups={"Apple"})) -->
+	<groups>
+		<run>
+			<include name="moto"></include>
+			<exclude name="apple"></exclude>
+		</run>
+	</groups>
+
+<!-- 3. Listeners Function -->
+	<listeners>
+		<listener class-name="mainfunctions.TestNGListeners"></listener>
+		<listener class-name="mainfunctions.annotaiontransform"></listener>
+	</listeners>
+
+<!-- 4. Parameterization (this is for normal value getting concept) -->
+<!-- Ex: @Test
+	     @Parameters({"name","place"})
+	       public void parameter2(String he,String pl) {
+		   System.out.println(he);
+		   System.out.println(pl); -->
+
+	<parameter name="name" value="gopinath" />
+
+	<test name="ChromeTest1">
+     <parameter name="browser" value="chrome" /> <!-- this is for cross browser testing -->
+     <!-- this code for inside java class
+     @Test   
+	     @Parameters("browser")
+	       public void setup(String brow) {
+	       if(brow.equals("chrome")){
+	       }else if{
+	       }
+	       -->
+		 
+		<classes>
+			<class name="TestNG.ParallelExecutionDemo">
+				<methods>
+					<include name=""></include>
+					<exclude name=""></exclude>
+				</methods>
+			</class>
+			<class name=""></class>
+			<class name=""></class>
+
+		</classes>
+	</test>
+
+	<test name="IETest2">
+    <parameter name="browser" value="IE" /> <!-- this is for cross browser testing -->
+		<classes>
+			<class name="TestNG.ParallelExecutionDemo">
+				<methods>
+					<include name=""></include>
+					<exclude name=""></exclude>
+				</methods>
+			</class>
+			<class name=""></class>
+			<class name=""></class>
+
+		</classes>
+
+	</test>
+
+</suite>
